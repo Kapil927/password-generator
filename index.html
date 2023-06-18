@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="build.css">
+    <title>PassGen</title>
+    <body>
+        <div class="h-[100vh] grid place-content-center gap-3 select-none">
+            <h2 class="text-4xl font-bold text-white">PASSWORD GENERATOR</h2>
+            <div class="relative mt-3-700 h-10 focus:outline-none">
+                <input readonly type="text" placeholder="Password"  id="cntnt" class=" absolute w-[100%] border-b-4 border-b-orange-500 pl-3 leading-[2.6rem] bg-black rounded-lg placeholder:absolute placeholder:left-4 placeholder:top-1.5 placeholder:text-orange-400 placeholder:uppercase text-xl font-semibold outline-0">
+                <div id="cpymsg" class="absolute leading-5 scale-0 transition-all duration-200 origin-bottom -right-1.5 -top-3.5 border rounded-lg text-black bg-white text-xs p-1">              
+                     </div> 
+                <img src="copy.svg" alt="copy" width="19px" class="cursor-default absolute right-1 top-2" onclick="copy()">
+            </div>
+            <div class="flex flex-col justify-between border p-6 bg-black rounded-3xl h-[27rem]">
+                <div class="flex justify-between">
+                    <p class="text-2xl text-white">Password Length</p>
+                    <div class="text-yellow-300" id="length">10</div>
+                </div>
+                <input type="range" name="slider" id="slider" min="0" max="20" value="10" oninput="handleSlider()" class=" appearance-none rounded-full h-2  bg-pink-500 slider">
+                <div class="flex flex-col">
+                    <div class="relative">                    
+                        <input type="checkbox" name="" id="uc" onchange="handleCheckBoxChange()" class="appearance-none h-[12px] w-[12px]
+                         border-[1px] border-orange-400 checked:bg-orange-400 before:absolute before:top-1 before:left-0 checked:before:content-['✓'] checked:before:text-xs 
+                         font-extrabold">
+                        <label for="uc" class="text-white text-lg"> Include Uppercase letters </label>
+                    </div>
+                    <div class="relative">
+                        <input type="checkbox" name="" id="lc" onchange="handleCheckBoxChange()" class="appearance-none h-[12px] w-[12px]
+                        border-[1px] border-orange-400 checked:bg-orange-400 before:absolute before:top-1 checked:before:content-['✓'] checked:before:text-xs 
+                        font-extrabold" >
+                        <label for="lc" class="text-white text-lg"> Include Lowercase letters </label>
+                    </div>
+                    <div class="relative">
+                        <input type="checkbox" name="" id="no" onchange="handleCheckBoxChange()" class="appearance-none h-[12px] w-[12px]
+                        border-[1px] border-orange-400 checked:bg-orange-400 before:absolute before:top-1 checked:before:content-['✓'] checked:before:text-xs 
+                        font-extrabold" >
+                        <label for="no" class="text-white text-lg"> Include Numbers </label>
+                    </div>
+                    <div class="relative">
+                        <input type="checkbox" name="" id="sy" onchange="handleCheckBoxChange()" class="appearance-none h-[12px] w-[12px]
+                        border-[1px] border-orange-400 checked:bg-orange-400 before:absolute before:top-1 checked:before:content-['✓'] checked:before:text-xs 
+                        font-extrabold" >
+                        <label for="sy" class="text-white text-lg"> Include Symbols </label>
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-white text-2xl">Strength</p>
+                    <div id="strength-indicator" class="border h-5 w-5 rounded-full bg-[#cfcdcd] shadow-[1px_1px_10px_white,-1px_-1px_10px_white]"></div>
+                </div>
+                <button id="generateButton" class="text-orange-400 font-bold text-xl border border-b-4 border-pink-400 rounded-lg leading-9">GENERATE PASSWORD</button>
+            </div>
+
+        </div>
+       <script src="index.js" type="module"></script>
+</body>
+</html>
